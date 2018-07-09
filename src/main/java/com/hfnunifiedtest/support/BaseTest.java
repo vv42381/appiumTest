@@ -1,4 +1,4 @@
-package com.eliasnogueira.support;
+package com.hfnunifiedtest.support;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -21,15 +21,15 @@ public class BaseTest {
     public AppiumDriver<?> driver = null;
 
     @BeforeTest(alwaysRun = true)
-    @Parameters( { "platform", "udid", "platformVersion"})
-    public void beforeTest(String platform, String udid, String platformVersion) throws Exception {
+    @Parameters( { "platform", "udid", "platformVersion","portno"})
+    public void beforeTest(String platform, String udid, String platformVersion, String portno) throws Exception {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         capabilities.setCapability(MobileCapabilityType.UDID, udid);
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, platformVersion);
 
         // create the complete URL based on config.properties information
-        String completeURL = "http://" + Utils.readProperty("run.ip") + ":" + Utils.readProperty("run.port") + "/wd/hub";
+        String completeURL = "http://" + Utils.readProperty("run.ip") + ":" + portno + "/wd/hub";
 
         switch (platform.toLowerCase()) {
             case "ios":

@@ -3,20 +3,22 @@
 <suite name="Suite" parallel="tests" thread-count="3" >
 
     <test name="Android emulator">
-        <parameter name="platform" value="android"/>
+        <parameter name="platform" value="ANDROID"/>
         <parameter name="udid" value="emulator-5554"/>
-        <parameter name="platformVersion" value="5.0.2"/>
+        <!--parameter name="udid" value="9885e6454b50494151"/-->
+        <parameter name="platformVersion" value="7.0"/>
+        <parameter name="portno" value="4723"/>
         <classes>
-            <class name="com.eliasnogueira.TipTest"/>
+            <class name="com.hfnunifiedtest.SignUpTest"/>
         </classes>
     </test>
 
-    <test name="Genymotion">
+    <!--test name="Genymotion">
         <parameter name="platform" value="android"/>
         <parameter name="udid" value="192.168.56.101:5555"/>
         <parameter name="platformVersion" value="7.1.0"/>
         <classes>
-            <class name="com.eliasnogueira.TipTest"/>
+            <class name="com.hfnunifiedtest.SignUpTest"/>
         </classes>
     </test>
 
@@ -25,7 +27,7 @@
         <parameter name="udid" value="3C9FB71E-9C0E-49A7-AD65-3CCCD3A50301"/>
         <parameter name="platformVersion" value="11.2"/>
         <classes>
-            <class name="com.eliasnogueira.TipTest"/>
+            <class name="com.hfnunifiedtest.SignUpTest"/>
         </classes>
-    </test>
+    </test-->
 </suite>
