@@ -17,7 +17,9 @@ package com.hfnunifiedtest;
 
 import static org.testng.Assert.assertEquals;
 
+import com.hfnunifiedtest.po.HomePagePageObject;
 import com.hfnunifiedtest.po.MainScreenPageObject;
+import com.hfnunifiedtest.po.ProfilePageObject;
 import com.hfnunifiedtest.po.SignUpPageObject;
 import com.hfnunifiedtest.support.BaseTest;
 
@@ -36,11 +38,9 @@ public class SignUpTest extends BaseTest {
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		SignUpPageObject signUpPage = new SignUpPageObject(driver);
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-		//driver.hideKeyboard();
-		//driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		signUpPage.enterName("abhyasi.1");
 		signUpPage.enterMobile("9532513521");
-		signUpPage.enterEmail("abhyasi.1@mailinator.com");
+		signUpPage.enterEmail("abhyasi.1524125341412@mailinator.com");
 		driver.hideKeyboard();
 		signUpPage.enterPassword("Password1");
 		driver.hideKeyboard();
@@ -48,6 +48,14 @@ public class SignUpTest extends BaseTest {
 		driver.hideKeyboard();
 		signUpPage.clickSignUp();
 		driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+		HomePagePageObject homePagePageObject = new HomePagePageObject(driver);
+		homePagePageObject.clickProfileImage();
+		ProfilePageObject profilePageObject = new ProfilePageObject(driver);
+		//add scroll to bottom of page here
+		profilePageObject.logout();
+		//iterate this for creating multiple signups.
+		MainScreenPageObject mainScreen1 = new MainScreenPageObject(driver);
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		mainScreen1.clickSignUp();
 	}
-
 }
